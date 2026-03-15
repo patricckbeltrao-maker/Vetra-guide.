@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vetra Alliance Guide</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+
+    background-image: url("vetra-bg.jpg.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    color:white;
+    text-align:center;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    z-index:-1;
+}
+
+header{
+    background:#111827;
+    padding:30px;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.sub{
+    color:#9ca3af;
+    font-size:16px;
+}
+
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+    padding:40px;
+    max-width:900px;
+    margin:auto;
+
+    background: transparent;
+}
+
+.card{
+
+    background:#1f2937;
+    padding:30px;
+    border-radius:12px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.card:hover{
+    background:#374151;
+    transform:scale(1.05);
+}
+
+.modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.8);
+    align-items:center;
+    justify-content:center;
+}
+
+.modal-content{
+    background:#1f2937;
+    padding:30px;
+    border-radius:10px;
+}
+
+.lang-btn{
+    display:block;
+    margin:10px;
+    padding:12px 20px;
+    background:#2563eb;
+    border:none;
+    color:white;
+    font-size:16px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.lang-btn:hover{
+    background:#3b82f6;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+VETRA ALLIANCE
+<div class="sub">Guia estratégico para membros</div>
+</header>
+
+<div class="container">
+
+<div class="card" onclick="openLang('vs')">VS</div>
+
+<div class="card" onclick="openLang('sede')">Upar Sede</div>
+
+<div class="card" onclick="openLang('herois')">Upar Heróis</div>
+
+<div class="card" onclick="openLang('pesquisa')">Pesquisa</div>
+
+<div class="card" onclick="openLang('construcoes')">Construções</div>
+
+<div class="card" onclick="openLang('deserto')">Batalha do Deserto</div>
+
+<div class="card" onclick="openLang('dicas')">Dicas Gerais</div>
+
+</div>
+
+<div class="modal" id="langModal">
+
+<div class="modal-content">
+
+<h2>Escolha o idioma</h2>
+
+<button class="lang-btn" onclick="goPage('pt')">Português</button>
+
+<button class="lang-btn" onclick="goPage('en')">English</button>
+
+</div>
+
+</div>
+
+<script>
+
+let selectedPage = "";
+
+function openLang(page){
+
+    selectedPage = page;
+
+    document.getElementById("langModal").style.display = "flex";
+
+}
+
+function goPage(lang){
+
+    window.location.href = selectedPage + "-" + lang + ".html";
+
+}
+
+window.onclick = function(event){
+
+    const modal = document.getElementById("langModal");
+
+    if(event.target === modal){
+
+        modal.style.display = "none";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
